@@ -104,3 +104,22 @@ main {
   gap: 10px;
   margin-top: 20px;
 }
+
+.actions button {
+  border: none;
+  background: white;
+  padding: 10px 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.actions button:hover {
+  background: gray;
+  transform: translateY(-2px);
+}
+
+.actions button:active {
+  transform: translateY(0);
+}
