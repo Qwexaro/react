@@ -1,16 +1,13 @@
 import Actions from './Actions'
 
-let Post = () =>
-    <article>
-        <h2>
-            Title from post
-        </h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Ipsum, temporibus asperiores. Numquam, quos atque in deleniti
-            totam fugiat alias facere velit magni,
-            quis aut, quasi fugit deserunt error omnis impedit!
-        </p>
+let Post = ({ author, title, text }) =>
+    <article className='post'>
+        <h2>{title}</h2>
+        
+        <p className='post-text'>{text}</p>
+        
+        <p className='post-author'>Автор: {author}</p>
+
         <Actions />
     </article>;
 

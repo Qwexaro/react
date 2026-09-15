@@ -6,7 +6,7 @@ function Actions() {
     const [reposts, setReposts] = useState(0);
 
     return (
-        <div>
+        <div className="actions">
             <button onClick={() => setLikes(likes + 1)}>
                 {likes} &#10084;
             </button>

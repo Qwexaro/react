@@ -1,5 +1,5 @@
 let Header = () =>
-    <header>
+    <header className="header">
         <h1>SOCIAL NETWORK</h1>
         <p>for communication</p>
     </header>;
