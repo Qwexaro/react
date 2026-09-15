@@ -1,14 +1,14 @@
 import Post from './Post'
 
 let ProfileCard = () =>
-    <section>
-        <div>
-            <div>
+    <section className='profile-card'>
+        <div className='profile'>
+            <div className='avatar'>
                 avatar
-                <div>
-                    <h2>Name</h2>
-                    <p>@nick</p>
-                </div>
+            </div>
+            <div className='profile-info'>
+                <h2>Name</h2>
+                <p>@nick</p>
             </div>
         </div>
         <Post />
