@@ -50,6 +50,14 @@ main {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid gainsboro;
+}
+
 .avatar {
   width: 55px;
   height: 55px;
