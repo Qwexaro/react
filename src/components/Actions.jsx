@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-let Actions = () => {
+function Actions() {
     const [likes, setLikes] = useState(0);
 
     const [reposts, setReposts] = useState(0);
