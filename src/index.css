@@ -107,7 +107,7 @@ main {
 
 .actions button {
   border: none;
-  background: white;
+  background: gainsboro;
   padding: 10px 10px;
   border-radius: 10px;
   font-size: 15px;
