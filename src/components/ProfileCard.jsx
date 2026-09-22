@@ -2,31 +2,6 @@ import { useState } from 'react';
 import Post from './Post'
 
 
-let addPost = event => {
-
-    event.preventDefault();
-
-    const newPost = {
-
-        id: Date.now(),
-
-        title: title,
-
-        text: text,
-
-        author: "Viktor"
-
-    }
-
-    setPosts(...postsData, newPost);
-
-    setTitle("");
-
-    setText("");
-
-}
-
-
 let ProfileCard = () => {
 
     const [posts, setPosts] = useState([
@@ -47,6 +22,30 @@ let ProfileCard = () => {
     const [text, setText] = useState("");
 
 
+    let addPost = event => {
+
+        event.preventDefault();
+
+        const newPost = {
+
+            id: Date.now(),
+
+            title: title,
+
+            text: text,
+
+            author: "Viktor"
+
+        }
+
+        setPosts([...posts, newPost]);
+
+        setTitle("");
+
+        setText("");
+
+    }
+
     return (
         < section className='profile-card' >
             <div className='profile'>
@@ -60,7 +59,7 @@ let ProfileCard = () => {
             </div>
 
 
-            <form className="post-form" onSubmit={ addPost }>
+            <form className="post-form" onSubmit={addPost}>
                 <input
                     type="text"
 
@@ -70,6 +69,17 @@ let ProfileCard = () => {
 
                     onChange={(event) => setTitle(event.target.value)}
                 />
+
+                <textarea
+                    placeholder="text for post"
+
+                    value={text}
+
+                    onChange={(event) => setText(event.target.value)}
+                />
+                <button type="submit">
+                    Опубликовать
+                </button>
             </form>
 
 
