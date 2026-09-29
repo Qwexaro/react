@@ -1,1 +1,0 @@
-deletePost = id => setPosts(posts.filter((post) => post.id !== id));
