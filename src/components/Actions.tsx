@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-function Actions() {
+function Actions(): React.JSX.Element {
     const [likes, setLikes] = useState(0);
 
     const [reposts, setReposts] = useState(0);

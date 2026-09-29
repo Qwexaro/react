@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Post from './Post.js'
 
 
-let ProfileCard = () => {
+let ProfileCard = (): React.JSX.Element => {
 
     const [posts, setPosts] = useState([
 
