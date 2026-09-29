@@ -1,4 +1,4 @@
-import Actions from './Actions'
+import Actions from './Actions.js'
 
 let Post = ({ author, title, text, onDelete, id }) =>
     <div>

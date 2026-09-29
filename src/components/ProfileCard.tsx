@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Post from './Post'
+import Post from './Post.js'
 
 
 let ProfileCard = () => {
@@ -22,7 +22,7 @@ let ProfileCard = () => {
     const [text, setText] = useState("");
 
 
-    let addPost = event => {
+    let addPost = (event: { preventDefault: () => void; }) => {
 
         event.preventDefault();
 
@@ -46,7 +46,7 @@ let ProfileCard = () => {
 
     }
 
-    let deletePost = id => setPosts(posts.filter((post) => post.id !== id));
+    let deletePost = (id: number) => setPosts(posts.filter((post) => post.id !== id));
 
     return (
         < section className='profile-card' >
