@@ -46,6 +46,8 @@ let ProfileCard = () => {
 
     }
 
+    let deletePost = id => setPosts(posts.filter((post) => post.id !== id));
+
     return (
         < section className='profile-card' >
             <div className='profile'>
@@ -93,6 +95,10 @@ let ProfileCard = () => {
                         title={post.title}
 
                         text={post.text}
+
+                        onDelete={deletePost}
+
+                        id={post.id}
                     />
                 ))
             }
