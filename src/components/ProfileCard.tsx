@@ -86,21 +86,26 @@ let ProfileCard = () => {
 
 
             {
-                posts.map(post => (
-                    <Post
+                posts.length > 0 ? (
+
+                    posts.map(post => (
+                        <Post
                         key={post.id}
-
+                        
                         author={post.author}
-
+                        
                         title={post.title}
-
+                        
                         text={post.text}
-
+                        
                         onDelete={deletePost}
-
+                        
                         id={post.id}
-                    />
-                ))
+                        />
+                    ))
+                ) : (
+                    <p className='empty-message'>Publish your first post!</p>
+                )
             }
 
         </section >);

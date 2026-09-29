@@ -6,7 +6,7 @@ export type PostCardProps = {
 
     title: string,
 
-    text: string
+    text: string,
 
     onDelete: (id: number) => void;
 
