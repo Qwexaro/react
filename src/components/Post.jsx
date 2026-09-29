@@ -1,6 +1,6 @@
 import Actions from './Actions'
 
-let Post = ({ author, title, text }) =>
+let Post = ({ author, title, text, onDelete, id }) =>
     <div>
         <article className='post'>
             <h2>{ title }</h2>
@@ -10,6 +10,8 @@ let Post = ({ author, title, text }) =>
             <p className='post-author'>Author: { author }</p>
 
             <Actions />
+
+            <button className='delete-button' onClick={() => onDelete(id)}> Delete </button>
         </article>
         
     </div>;
