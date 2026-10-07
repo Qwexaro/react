@@ -1,13 +1,13 @@
 export type PostCardProps = {
 
-    id: number,
+  id: number,
 
-    author: string,
+  author: string,
 
-    title: string,
+  title: string,
 
-    text: string,
+  text: string,
 
-    onDelete: (id: number) => void;
+  onDelete: (id: number) => void;
 
 }

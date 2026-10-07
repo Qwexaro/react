@@ -3,20 +3,20 @@ import type { PostCardProps } from './structures/PostCardProps.js';
 
 
 let Post = ({ author, title, text, onDelete, id }: PostCardProps): React.JSX.Element =>
-    <div>
-        <article className='post'>
-            <h2>{title}</h2>
+  <div>
+    <article className='post'>
+      <h2>{title}</h2>
 
-            <p className='post-text'>{text}</p>
+      <p className='post-text'>{text}</p>
 
-            <p className='post-author'>Author: {author}</p>
+      <p className='post-author'>Author: {author}</p>
 
-            <Actions />
+      <Actions />
 
-            <button className='delete-button' onClick={() => onDelete(id)}> Delete </button>
-        </article>
+      <button className='delete-button' onClick={() => onDelete(id)}> Delete </button>
+    </article>
 
-    </div>;
+  </div>;
 
 
 export default Post;

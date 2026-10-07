@@ -18,8 +18,8 @@ export default defineConfig([
     languageOptions: {
       globals: globals.browser,
       parser: tseslint.parser,
-      parserOptions: { 
-        ecmaFeatures: { jsx: true } 
+      parserOptions: {
+        ecmaFeatures: { jsx: true }
       },
     },
     rules: {

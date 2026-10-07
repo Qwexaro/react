@@ -4,111 +4,111 @@ import Post from './Post.js'
 
 let ProfileCard = (): React.JSX.Element => {
 
-    const [posts, setPosts] = useState([
+  const [posts, setPosts] = useState([
 
-        { id: 1, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
+    { id: 1, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
 
-        { id: 2, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
+    { id: 2, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
 
-        { id: 3, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
+    { id: 3, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
 
-        { id: 4, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' }
+    { id: 4, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' }
 
-    ])
-
-
-    const [title, setTitle] = useState('');
-
-    const [text, setText] = useState("");
+  ])
 
 
-    let addPost = (event: { preventDefault: () => void; }) => {
+  const [title, setTitle] = useState('');
 
-        event.preventDefault();
+  const [text, setText] = useState("");
 
-        const newPost = {
 
-            id: Date.now(),
+  let addPost = (event: { preventDefault: () => void; }) => {
 
-            title: title,
+    event.preventDefault();
 
-            text: text,
+    const newPost = {
 
-            author: "Viktor"
+      id: Date.now(),
 
-        }
+      title: title,
 
-        setPosts([...posts, newPost]);
+      text: text,
 
-        setTitle("");
-
-        setText("");
+      author: "Viktor"
 
     }
 
-    let deletePost = (id: number) => setPosts(posts.filter((post) => post.id !== id));
+    setPosts([...posts, newPost]);
 
-    return (
-        < section className='profile-card' >
-            <div className='profile'>
-                <div className='avatar'>
-                    avatar
-                </div>
-                <div className='profile-info'>
-                    <h2>Name</h2>
-                    <p>@nick</p>
-                </div>
-            </div>
+    setTitle("");
 
+    setText("");
 
-            <form className="post-form" onSubmit={addPost}>
-                <input
-                    type="text"
+  }
 
-                    placeholder='Заголовок'
+  let deletePost = (id: number) => setPosts(posts.filter((post) => post.id !== id));
 
-                    value={title}
-
-                    onChange={(event) => setTitle(event.target.value)}
-                />
-
-                <textarea
-                    placeholder="text for post"
-
-                    value={text}
-
-                    onChange={(event) => setText(event.target.value)}
-                />
-                <button type="submit">
-                    Опубликовать
-                </button>
-            </form>
+  return (
+    < section className='profile-card' >
+      <div className='profile'>
+        <div className='avatar'>
+          avatar
+        </div>
+        <div className='profile-info'>
+          <h2>Name</h2>
+          <p>@nick</p>
+        </div>
+      </div>
 
 
-            {
-                posts.length > 0 ? (
+      <form className="post-form" onSubmit={addPost}>
+        <input
+          type="text"
 
-                    posts.map(post => (
-                        <Post
-                        key={post.id}
-                        
-                        author={post.author}
-                        
-                        title={post.title}
-                        
-                        text={post.text}
-                        
-                        onDelete={deletePost}
-                        
-                        id={post.id}
-                        />
-                    ))
-                ) : (
-                    <p className='empty-message'>Publish your first post!</p>
-                )
-            }
+          placeholder='Заголовок'
 
-        </section >);
+          value={title}
+
+          onChange={(event) => setTitle(event.target.value)}
+        />
+
+        <textarea
+          placeholder="text for post"
+
+          value={text}
+
+          onChange={(event) => setText(event.target.value)}
+        />
+        <button type="submit">
+          Опубликовать
+        </button>
+      </form>
+
+
+      {
+        posts.length > 0 ? (
+
+          posts.map(post => (
+            <Post
+              key={post.id}
+
+              author={post.author}
+
+              title={post.title}
+
+              text={post.text}
+
+              onDelete={deletePost}
+
+              id={post.id}
+            />
+          ))
+        ) : (
+          <p className='empty-message'>Publish your first post!</p>
+        )
+      }
+
+    </section >);
 }
 
 
