@@ -11,8 +11,9 @@ function App(): React.JSX.Element {
 
   return (
     <div className='app'>
-      <Header />
+
       <main>
+        <Header />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/profile' element={<Profile />} />
