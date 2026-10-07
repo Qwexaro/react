@@ -45,28 +45,42 @@ let Profile = (): React.JSX.Element => {
 
   }
 
-  return (<form className="post-form" onSubmit={addPost}>
-    <input
-      type="text"
+  return (
+    < section className='profile-card' >
+      <div className='profile'>
+        <div className='avatar'>
+          avatar
+        </div>
+        <div className='profile-info'>
+          <h2>Name</h2>
+          <p>@nick</p>
+        </div>
+      </div>
 
-      placeholder='Заголовок'
+      <form className="post-form" onSubmit={addPost}>
+        <input
+          type="text"
 
-      value={title}
+          placeholder='Заголовок'
 
-      onChange={(event) => setTitle(event.target.value)}
-    />
+          value={title}
 
-    <textarea
-      placeholder="text for post"
+          onChange={(event) => setTitle(event.target.value)}
+        />
 
-      value={text}
+        <textarea
+          placeholder="text for post"
 
-      onChange={(event) => setText(event.target.value)}
-    />
-    <button type="submit">
-      Опубликовать
-    </button>
-  </form>);
+          value={text}
+
+          onChange={(event) => setText(event.target.value)}
+        />
+        <button type="submit">
+          Опубликовать
+        </button>
+      </form>
+    </section>
+  );
 
 }
 
