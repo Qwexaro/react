@@ -7,14 +7,14 @@ function Actions(): React.JSX.Element {
 
   return (
     <div className="actions">
-      <button onClick={() => setLikes(likes + 1)}>
+      <button onClick={(): void => setLikes(likes + 1)}>
         {likes} &#10084;
       </button>
 
-      <button onClick={() => setReposts(reposts + 1)}>
+      <button onClick={(): void => setReposts(reposts + 1)}>
         {reposts} &#128017;
       </button>
-    </div>
+    </div >
   );
 }
 

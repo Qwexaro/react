@@ -1,0 +1,73 @@
+import type React from "react";
+import { useState } from "react";
+
+let Profile = (): React.JSX.Element => {
+
+  const [posts, setPosts] = useState([
+
+    { id: 1, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
+
+    { id: 2, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
+
+    { id: 3, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
+
+    { id: 4, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' }
+
+  ])
+
+
+  const [title, setTitle] = useState('');
+
+  const [text, setText] = useState("");
+
+
+  let addPost = (event: { preventDefault: () => void; }): void => {
+
+    event.preventDefault();
+
+    const newPost = {
+
+      id: Date.now(),
+
+      title: title,
+
+      text: text,
+
+      author: "Viktor"
+
+    }
+
+    setPosts([...posts, newPost]);
+
+    setTitle("");
+
+    setText("");
+
+  }
+
+  return (<form className="post-form" onSubmit={addPost}>
+    <input
+      type="text"
+
+      placeholder='Заголовок'
+
+      value={title}
+
+      onChange={(event) => setTitle(event.target.value)}
+    />
+
+    <textarea
+      placeholder="text for post"
+
+      value={text}
+
+      onChange={(event) => setText(event.target.value)}
+    />
+    <button type="submit">
+      Опубликовать
+    </button>
+  </form>);
+
+}
+
+export default Profile;
