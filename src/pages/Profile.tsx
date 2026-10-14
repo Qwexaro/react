@@ -1,28 +1,8 @@
 import type React from "react";
 import { useState, useEffect } from "react";
+import { usePosts } from "../context/Posts.Context.js";
 
 let Profile = (): React.JSX.Element => {
-
-  const [posts, setPosts] = useState(() => {
-
-    const savedPosts = localStorage.getItem("posts");
-
-    if (savedPosts) return JSON.parse(savedPosts);
-
-    return [
-
-      { id: 1, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
-
-      { id: 2, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
-
-      { id: 3, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
-
-      { id: 4, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' }
-
-    ];
-
-  });
-
 
   const [title, setTitle] = useState('');
 
@@ -30,13 +10,7 @@ let Profile = (): React.JSX.Element => {
 
   const [error, setError] = useState('');
 
-  useEffect(() => {
-
-    console.log("Профиль открыт", posts.length);
-
-    localStorage.setItem("posts", JSON.stringify(posts));
-
-  }, [posts]);
+  const { posts, setPosts } = usePosts();
 
 
   let addPost = (event: { preventDefault: () => void; }): void => {

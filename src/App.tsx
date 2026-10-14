@@ -6,6 +6,7 @@ import Home from './pages/Home.js';
 import Profile from './pages/Profile.js';
 import Settings from './pages/Settings.js';
 import About from './pages/About.js';
+import { PostsProvider } from './context/Posts.Context.js';
 
 function App(): React.JSX.Element {
 
@@ -13,13 +14,15 @@ function App(): React.JSX.Element {
     <div className='app'>
 
       <main>
-        <Header />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/settings' element={<Settings />} />
-          <Route path='/about' element={<About />} />
-        </Routes>
+        <PostsProvider>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/settings' element={<Settings />} />
+            <Route path='/about' element={<About />} />
+          </Routes>
+        </PostsProvider>
       </main>
     </div>
   )

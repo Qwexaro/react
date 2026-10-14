@@ -185,3 +185,17 @@
     border-right-color: var(--border);
   }
 }
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 500px;
+  margin: 30px auto 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
