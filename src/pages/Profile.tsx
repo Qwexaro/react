@@ -3,26 +3,38 @@ import { useState, useEffect } from "react";
 
 let Profile = (): React.JSX.Element => {
 
-  const [posts, setPosts] = useState([
+  const [posts, setPosts] = useState(() => {
 
-    { id: 1, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
+    const savedPosts = localStorage.getItem("posts");
 
-    { id: 2, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
+    if (savedPosts) return JSON.parse(savedPosts);
 
-    { id: 3, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
+    return [
 
-    { id: 4, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' }
+      { id: 1, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
 
-  ])
+      { id: 2, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
+
+      { id: 3, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' },
+
+      { id: 4, author: 'Viktor', title: 'Study react for frontend', text: 'Any text' }
+
+    ];
+
+  });
 
 
   const [title, setTitle] = useState('');
 
   const [text, setText] = useState("");
 
+  const [error, setError] = useState('');
+
   useEffect(() => {
 
     console.log("Профиль открыт", posts.length);
+
+    localStorage.setItem("posts", JSON.stringify(posts));
 
   }, [posts]);
 
@@ -30,6 +42,8 @@ let Profile = (): React.JSX.Element => {
   let addPost = (event: { preventDefault: () => void; }): void => {
 
     event.preventDefault();
+
+    if (!title.trim() || !text.trim()) { setError("Заполните заголовок и текст"); return; }
 
     const newPost = {
 
@@ -49,7 +63,11 @@ let Profile = (): React.JSX.Element => {
 
     setText("");
 
+    setError('');
+
   }
+
+  let clearPosts = (): void => setPosts([]);
 
   return (
     < section className='profile-card' >
@@ -64,6 +82,11 @@ let Profile = (): React.JSX.Element => {
       </div>
 
       <form className="post-form" onSubmit={addPost}>
+        {error && (
+          <p className="form-error">
+            {error}
+          </p>
+        )}
         <input
           type="text"
 
@@ -85,6 +108,7 @@ let Profile = (): React.JSX.Element => {
           Опубликовать
         </button>
       </form>
+      <button onClick={clearPosts}>Удалить все посты</button>
     </section>
   );
 
