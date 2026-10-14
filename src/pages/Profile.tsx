@@ -1,5 +1,5 @@
 import type React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 let Profile = (): React.JSX.Element => {
 
@@ -19,6 +19,12 @@ let Profile = (): React.JSX.Element => {
   const [title, setTitle] = useState('');
 
   const [text, setText] = useState("");
+
+  useEffect(() => {
+
+    console.log("Профиль открыт", posts.length);
+
+  }, [posts]);
 
 
   let addPost = (event: { preventDefault: () => void; }): void => {
