@@ -4,7 +4,7 @@ import { useTheme } from "../context/Theme.Context.js";
 
 function Header(): React.JSX.Element {
 
-  const {theme, toggleTheme} = useTheme();
+  useTheme();
 
   return(
     <header className="header">

@@ -35,6 +35,11 @@ button {
   color: #9ca3af;
 }
 
+.header.theme-light {
+  background-color: #f2f3f5;
+  color: #222;
+}
+
 /* MAIN */
 
 main {
