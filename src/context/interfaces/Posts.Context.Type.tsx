@@ -6,4 +6,6 @@ export interface PostsContextType {
 
     setPosts: React.Dispatch<React.SetStateAction<Post[]>>;
 
+    deletePost: (id: number) => void;
+
 }

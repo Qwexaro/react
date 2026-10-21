@@ -8,6 +8,6 @@ export type PostCardProps = {
 
   text: string,
 
-  // onDelete: (id: number) => void;
+  onDelete: (id: number) => void;
 
 }
