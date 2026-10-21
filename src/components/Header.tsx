@@ -1,8 +1,13 @@
 import type React from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../context/Theme.Context.js";
 
-let Header = (): React.JSX.Element =>
-  <header className="header">
+function Header(): React.JSX.Element {
+
+  const {theme, toggleTheme} = useTheme();
+
+  return(
+    <header className="header">
     <h1>SOCIAL NETWORK</h1>
     <p>for communicate</p>
 
@@ -22,8 +27,9 @@ let Header = (): React.JSX.Element =>
       <Link to={"/about"}>
         About this project
       </Link>
-
     </nav>
   </header>
+  );
+}
 
 export default Header;
