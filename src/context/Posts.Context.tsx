@@ -35,13 +35,11 @@ export function PostsProvider({ children }: { children: ReactNode }) {
         console.log("Посты обновлены в localStorage, количество:", posts.length);
 
         localStorage.setItem("posts", JSON.stringify(posts));
-    },
-        [posts]);
 
-    const deletePost = (id: number) => {
-        setPosts((prevPosts) => prevPosts.filter(post => post.id !== id));
-    };
+    }, [posts]);
 
+    const deletePost = (id: number) => setPosts((prevPosts) => prevPosts.filter(post => post.id !== id));
+    
     return (
         <PostsContext.Provider value={{ posts, setPosts, deletePost }}>
             {children}

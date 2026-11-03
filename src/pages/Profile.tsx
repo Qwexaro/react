@@ -4,32 +4,49 @@ import { usePosts } from "../context/Posts.Context.js";
 import { useUser } from "../context/User.Context.js";
 
 let Profile = (): React.JSX.Element => {
-  const [title, setTitle] = useState('');
-  const [text, setText] = useState("");
-  const [error, setError] = useState('');
 
+  const [title, setTitle] = useState('');
+
+  const [text, setText] = useState("");
+
+  const [error, setError] = useState('');
+  
   const { posts, setPosts } = usePosts();
-  const { userName } = useUser();
+
+  const { userName, avatar } = useUser();
 
   let addPost = (event: React.FormEvent): void => {
+
     event.preventDefault();
 
     if (!title.trim() || !text.trim()) {
+
       setError("Заполните заголовок и текст");
+
       return;
+
     }
 
     const newPost = {
+
       id: Date.now(),
+
       title: title,
+
       text: text,
+
       author: userName
+
     }
 
     setPosts([...posts, newPost]);
+
     setTitle("");
+    
     setText("");
+    
     setError('');
+  
   }
 
   let clearPosts = (): void => setPosts([]);
@@ -38,7 +55,11 @@ let Profile = (): React.JSX.Element => {
     <section className='profile-card'>
       <div className='profile'>
         <div className='avatar'>
-          avatar
+          {avatar ? (
+            <img src={avatar} alt="avatar" className="avatar-preview" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
+          ) : (
+            <div className="avatar-placeholder">{userName.charAt(0).toUpperCase() || "?"}</div>
+          )}
         </div>
         <div className='profile-info'>
           <h2>{userName}</h2>
@@ -47,26 +68,19 @@ let Profile = (): React.JSX.Element => {
       </div>
 
       <form className="post-form" onSubmit={addPost}>
-        {error && (
-          <p className="form-error">
-            {error}
-          </p>
-        )}
+        {error && <p className="form-error">{error}</p>}
         <input
           type="text"
           placeholder='Заголовок'
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
-
         <textarea
           placeholder="text for post"
           value={text}
           onChange={(event) => setText(event.target.value)}
         />
-        <button type="submit">
-          Опубликовать
-        </button>
+        <button type="submit">Опубликовать</button>
       </form>
       <button onClick={clearPosts} style={{ marginTop: "15px" }}>
         Удалить все посты

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import type { UserContextType } from "./interfaces/User.Context.Type.js";
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -7,8 +7,32 @@ export function UserProvider({ children }: { children: ReactNode }) {
 
     const [userName, setUserName] = useState<string>('Sergey');
 
+    const [avatar, setAvatar] = useState<string>(() => {
+
+        return localStorage.getItem('avatar') || "";
+
+    });
+
+    useEffect(() => {
+
+        try {
+
+            if(avatar) localStorage.setItem('avatar', avatar);
+
+            else localStorage.removeItem('avatar');
+
+        }
+
+        catch(error) {
+
+            console.error('error:', error);
+
+        }
+
+    }, [avatar]);
+
     return (
-        <UserContext.Provider value={{ userName, setUserName }}>
+        <UserContext.Provider value={{ userName, setUserName, avatar, setAvatar }}>
             {children}
         </UserContext.Provider>
     );
@@ -21,4 +45,5 @@ export function useUser(): UserContextType {
     if (!context) throw new Error("useUser must be used within a UserProvider");
 
     return context;
+
 }
