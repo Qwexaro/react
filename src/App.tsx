@@ -9,6 +9,7 @@ import About from './pages/About.js';
 import { PostsProvider } from './context/Posts.Context.js';
 import { UserProvider } from './context/User.Context.js';
 import { ThemeProvider, useTheme } from './context/Theme.Context.js';
+import WeatherPage from './pages/Weather.Page.js';
 
 function AppContent(): React.JSX.Element {
 
@@ -23,6 +24,7 @@ function AppContent(): React.JSX.Element {
           <Route path='/profile' element={<Profile />} />
           <Route path='/settings' element={<Settings />} />
           <Route path='/about' element={<About />} />
+          <Route path='/weather' element={<WeatherPage />} />
         </Routes>
       </main>
     </div>

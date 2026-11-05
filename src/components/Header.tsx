@@ -27,6 +27,10 @@ function Header(): React.JSX.Element {
       <Link to={"/about"}>
         About this project
       </Link>
+
+      <Link to={"/weather"}>
+        Weather
+      </Link>
     </nav>
   </header>
   );
