@@ -25,7 +25,7 @@ function Weather(): React.JSX.Element {
 
         try {
             
-            const response = await fetch("https://open-meteo.com/");
+            const response = await fetch("https://open-meteo.com/v1/serch?name=Berlin&count10&languageen&format=json");
 
             const data = await response.json();
 
@@ -34,7 +34,7 @@ function Weather(): React.JSX.Element {
             const place = data.results[0];
 
             const responseWeather = await fetch(
-                `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=`
+                `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m`
             );
 
             if(!responseWeather.ok) throw new Error("Ошибка загрузки погоды");
